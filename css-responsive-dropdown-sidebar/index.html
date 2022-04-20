@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Responsive Dropdown Sidebar</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-ghost'></i>
+      <span class="logo-name">Galdev</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="">
+          <i class='bx bxs-dashboard'></i>
+          <span class="link-name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link-name" href="">Dashboard</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="">
+            <i class='bx bx-category'></i>
+            <span class="link-name">Category</span>
+          </a>
+          <i class='bx bx-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link-name" href="">Category</a></li>
+          <li><a href="">React</a></li>
+          <li><a href="">React-Native</a></li>
+          <li><a href="">Node.js</a></li>
+          <li><a href="">PrismaDB</a></li>
+          <li><a href="">PostgreSQL</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="">
+            <i class='bx bxl-postgresql'></i>
+            <span class="link-name">Posts</span>
+          </a>
+          <i class='bx bx-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link-name" href="">Posts</a></li>
+          <li><a href="">Web Apps</a></li>
+          <li><a href="">Mobile Apps</a></li>
+          <li><a href="">Designs</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">
+          <i class='bx bx-analyse'></i>
+          <span class="link-name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link-name" href="">Analytics</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">
+          <i class='bx bx-scatter-chart'></i>
+          <span class="link-name">Charts</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link-name" href="">Charts</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="">
+            <i class='bx bx-plug'></i>
+            <span class="link-name">Plugins</span>
+          </a>
+          <i class='bx bx-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link-name" href="">Plugins</a></li>
+          <li><a href="">Figma</a></li>
+          <li><a href="">Photoshop</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">
+          <i class='bx bx-cog'></i>
+          <span class="link-name">Settings</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link-name" href="">Settings</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="https://avatars.githubusercontent.com/u/48457726?v=4" alt="profile">
+          </div>
+          <div class="name-job">
+            <div class="profile-name">Diego Ferreira</div>
+            <div class="job">FullStack Developer</div>
+          </div>
+          <i class='bx bx-log-out'></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">Dropdown Sidebar</span>
+    </div>
+  </section>
+
+  <script src="index.js"></script>
+</body>
+</html>
