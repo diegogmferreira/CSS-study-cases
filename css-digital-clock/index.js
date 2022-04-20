@@ -12,9 +12,9 @@ setInterval(() => {
     let minDot = document.querySelector('.min-dot');
     let secDot = document.querySelector('.sec-dot');
 
-    let hour = new Date().getHours();
-    let minute = new Date().getMinutes();
-    let second = new Date().getSeconds();
+    let hour = String(new Date().getHours()).padStart(2, '0');
+    let minute = String(new Date().getMinutes()).padStart(2, '0');
+    let second = String(new Date().getSeconds()).padStart(2, '0');
 
     // convert 24h into 12h
     // let am = hour >= 12 ? 'PM' : 'AM';
@@ -22,9 +22,9 @@ setInterval(() => {
     //     hour = hour - 12;
     // }
 
-    hour = (hour < 10) ? "0" + hour : hour;
-    minute = (minute < 10) ? "0" + minute : minute;
-    second = (second < 10) ? "0" + second : second;
+    // hour = (hour < 10) ? "0" + hour : hour;
+    // minute = (minute < 10) ? "0" + minute : minute;
+    // second = (second < 10) ? "0" + second : second;
 
     hours.innerHTML = hour + "<br><span>Hours</span>";
     minutes.innerHTML = minute + "<br><span>Minutes</span>";
