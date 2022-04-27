@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #14213d, rgb(62, 91, 153));
+}
+
+.card-container {
+    position: relative;
+    width: 24rem;
+    height: 12rem;
+    background: #e5e5e5;
+    border-radius: 1.5rem;
+    box-shadow: 0 2rem 5rem rgba(0,0,0,0.25);
+
+    transition: 0.4s ease-in-out;
+}
+
+.card-container:hover {
+    height: 28rem;
+}
+
+.card-container .img-container {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9rem;
+    height: 9rem;
+    background: #e5e5e5;
+    border-radius: 1.5rem;
+    box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,0.35);
+
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+}
+
+.card-container:hover .img-container {
+    width: 16rem;
+    height: 16rem;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-container .content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.card-container .content .details {
+    width: 100%;
+    padding: 2.5rem;
+    text-align: center;
+    color: #14213d;
+    line-height: 1.5rem;
+
+    transition: 0.4s ease-in-out;
+    transform: translateY(152px);
+}
+
+.card-container:hover .content .details {
+    transform: translateY(0px);
+}
+
+.card-container .content .details h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-container .content .details span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.card-container .content .details .data {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.25rem 0;
+}
+
+.card-container .content .details .data h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
+.card-container .content .details .data h3 span {
+    font-size: 0.875rem;
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.card-container .content .details .action-btn {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 1.25rem; */
+}
+
+.card-container .content .details .action-btn button {
+    padding: 0.625rem 1.875rem;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: #f07167;
+    color: #e5e5e5;
+    cursor: pointer;
+
+    transition: 0.4s ease-in-out;
+}
+
+.card-container .content .details .action-btn button:nth-child(2) {
+    border: 1px solid #999;
+    color: #999;
+    background: #e5e5e5;
+}
+
+.card-container .content .details .action-btn button:hover {
+    background: rgba(5, 129, 53, 0.5);
+    color: #e5e5e5;
+}
