@@ -1,0 +1,83 @@
+:root {
+  --typewriterSpeed: 6s;
+  --typewriterCharacters: 24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Ubunto Mono", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background-color: antiquewhite;
+}
+
+h1 {
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  font-family: "Ubunto Mono", monospace;
+  font-weight: 700;
+  width: max-content;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+h1::before {
+  background: antiquewhite;
+  animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s  forwards;
+}
+
+h1::after {
+  width: .25rem;
+  background: black;
+  animation: 
+    typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s  forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.subtitle {
+  margin-top: 3rem;
+  color: hsl(0 0% 0% / 0.7);
+  font-size: 1.5rem;
+  letter-spacing: .25rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 4s ease calc(var(--typewriterSpeed) + 1s ) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
