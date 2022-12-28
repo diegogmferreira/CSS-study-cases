@@ -1,15 +1,16 @@
 const track = document.getElementById('image-track');
 const images = document.getElementsByClassName("image");
 
-window.onmousedown = (e) => {
+const handleOnDown = (e) => {
   track.dataset.mouseDownAt = e.clientX;
 }
-window.onmouseup = () => {
+
+const handleOnUp = () => {
   track.dataset.mouseDownAt = "0";
   track.dataset.prevPercentage = track.dataset.percentage;
 }
 
-window.onmousemove = (e) => {
+const handleOnMove = (e) => {
   if (track.dataset.mouseDownAt === "0" ) return;
 
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
@@ -35,3 +36,14 @@ window.onmousemove = (e) => {
   }
 }
 
+window.onmousedown = e => handleOnDown(e);
+
+window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+window.onmouseup = e => handleOnUp(e);
+
+window.ontouchend = e => handleOnUp(e.touches[0]);
+
+window.onmousemove = e => handleOnMove(e);
+
+window.ontouchmove = e => handleOnMove(e.touches[0]);
