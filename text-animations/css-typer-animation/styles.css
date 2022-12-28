@@ -1,0 +1,80 @@
+:root {
+  --typewriterSpeed: 6s;
+  --typewriterCharacters: 9;
+  --bg-color: #FFD6D6;
+  --primary-text: #444140;
+  --secondary-text: #BD0A0A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Ubunto Mono", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.wrapper {
+  display: inline-flex;
+}
+
+.wrapper .static-text {
+  font-size: 70px;
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.wrapper .dynamic-texts {
+  margin-left: 1rem;
+  height: 90px;
+  line-height: 90px;
+  overflow: hidden;
+}
+
+.dynamic-texts li {
+  list-style: none;
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--secondary-text);
+  position: relative;
+  top: 0;
+  animation: slide 6s steps(4) infinite;
+}
+
+@keyframes slide {
+  100% {
+    top: -370px
+  }
+}
+
+.dynamic-texts li span {
+  position:relative;
+}
+
+.dynamic-texts li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-color);
+  border-left: 2px solid var(--secondary-text);
+  animation: typing 1.5s steps(var(--typewriterCharacters)) infinite;
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
