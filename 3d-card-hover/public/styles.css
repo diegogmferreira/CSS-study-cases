@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Poopins:200,300,400,500,600,700,800,900&display=swap');
+
+:root {
+    --timing: 400ms;
+    --rotation: 20deg;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    perspective: 1000px;
+    background: #161623;
+}
+
+img {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.card-3d {
+    width: 300px;
+    background: #161623;
+    aspect-ratio:  9 / 16;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: rotate var(--timing) ease;
+    padding: 0;
+    margin: 0;
+}
+
+.card-3d:hover {
+    rotate: x var(--rotation)
+}
+
+.card-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background-image: radial-gradient(circle, transparent 150px, black);
+    opacity: 0;
+    transition: opacity var(--timing);
+}
+
+.card-3d:hover::before {
+    opacity: 1;
+}
+
+.card-3d::after {
+    content: "";
+    position: absolute;
+    inset: 80% 0.5rem 0.5rem;
+    /* inset: 1rem; */
+    translate: 0;
+    transform: translateZ(-100px);
+    background: black;
+    filter: blur(1rem);
+    z-index: 1;
+    transition: rotate var(--timing), translate var(--timing);
+}
+
+.bg-image {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    object-fit: cover;
+    object-position: -20px center;
+}
+
+.logo,
+.front-image {
+    position: absolute;
+}
+
+.logo {
+    z-index: 1000;
+    /* filter: invert(1); */
+    width: 45%;
+    margin-inline: auto;
+    inset: auto 0 1rem;
+    transform: translateY(2rem) translateZ(20px);
+    scale: 0.75;
+    transition: var(--timing);
+}
+
+.card-3d:hover .logo {
+    transform: translateY(-2rem) translateZ(20px);
+    rotate: x calc(var(--rotation) * -1);
+}
+
+.front-image {
+    scale: 1.125;
+    transform-origin: bottom;
+    opacity: 0;
+    z-index: 100;
+    transition: var(--timing);
+    object-position: 20px center;
+}
+
+.card-3d:hover .front-image {
+    opacity: 1;
+    transform: translateY(-1.5rem) translateZ(-10px);
+    rotate: x calc(var(--rotation) * -1);
+}
