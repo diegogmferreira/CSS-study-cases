@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Poopins:200,300,400,500,600,700,800,900&display=swap');
+
+:root {
+	--clr-primary: hsl(229 33% 21%);
+	--clr-secondary: #302047;
+	--clr-accent: hsl(21deg 85% 60%);
+	--clr-white: #e5e5e5;
+
+	--wrapper-padding-inline: 1rem;
+	--wrapper-max-width: 50rem;
+
+	--section-padding-block: 3rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	font-family: 'system-ui', sans-serif;
+	font-weight: 400;
+}
+
+
+body {
+	font-size: 1.125rem;
+	line-height: 1.7;
+	color: var(--clr-white);
+	background-color: var(--clr-primary);
+	background-image: linear-gradient(to bottom right, blue, purple, red);
+	background-blend-mode: multiply;
+}
+
+section.grid-full-width-split-screen img {
+	max-width: 100%;
+	display: block;
+}
+
+section div h1 {
+	font-size: clamp(3rem, 10vw, 5rem);
+	line-height: 1;
+	margin-bottom: 1.5rem;
+	color: var(--clr-white);
+	text-align: center;
+}
+
+section div.grid-wrapper.grid-title {
+ 	max-width: calc(var(--wrapper-max-width) * 1.2);
+ 	margin-inline: auto;
+	padding-inline: var(--wrapper-padding-inline);
+}
+
+section {
+	padding-block: var(--section-padding-block);
+}
+
+section div p {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.grid-primary {
+	color: var(--clr-white);
+	background-color: var(--clr-primary);
+}
+
+.grid-secondary {
+	color: var(--clr-white);
+	background-color: var(--clr-secondary);
+}
+
+.grid-accent {
+	background-color: var(--clr-accent);
+}
+
+.grid-button {
+	display: inline-flex;
+	padding: 0.75rem 1.5rem;
+	background: var(--clr-accent);
+	color: var(--clr-primary);
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 0.875em;
+}
+
+.grid-button:hover,
+.grid-button:focus {
+	background-color: var(--clr-white);
+}
+
+.grid-wrapper {
+	max-width: var(--wrapper-max-width);
+	margin-inline: auto;
+	padding-inline: var(--wrapper-padding-inline);
+}
+
+.grid-full-width-split-screen {
+	padding-block: 0;
+}
+
+.grid-full-width-split-screen> :not(img) {
+	padding-block: var(--section-padding-block);
+	padding-inline: var(--wrapper-padding-inline);
+}
+
+@media (min-width: 600px) {
+	.grid-full-width-split-screen {
+		display: grid;
+		grid-template-columns:
+			minmax(var(--wrapper-padding-inline), 1fr) 
+			minmax(0, calc(var(--wrapper-max-width) / 2)) 
+			minmax(0, calc(var(--wrapper-max-width) / 2)) 
+			minmax(var(--wrapper-padding-inline), 1fr);
+		position: relative;
+	}
+
+	.grid-full-width-split-screen > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.grid-full-width-split-screen > img:first-child {
+		grid-column: 1/3;
+	}
+
+	.grid-full-width-split-screen > img:last-child {
+		grid-column: 3/-1;
+	}
+
+	.grid-full-width-split-screen > :not(img) {
+		display: grid;
+		align-content: center;
+		justify-items: start;
+	}
+
+	.grid-full-width-split-screen > :not(img):first-child {
+		padding-left: 0;
+		grid-column: 2/3;
+	}
+
+	.grid-full-width-split-screen > :not(img):last-child {
+		padding-right: 0;
+		grid-column: 3/4;
+	}
+
+	.grid-full-width-split-screen > :not(img)::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: inherit;
+	}
+
+	.grid-full-width-split-screen > :not(img):first-child::before {
+		grid-column: 1/2;
+	}
+
+	.grid-full-width-split-screen > :not(img):last-child::before {
+		grid-column: 4/5;
+	}
+}
