@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', cursive;
+  user-select: none;
+}
+
+.slider-container {
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #EDD3C4;
+  overflow-x: hidden;
+}
+
+.slider {
+  position: absolute;
+  /* background: #EDD3C4; */
+  inset: 80px 200px 80px 80px;
+}
+
+.slider .slides {
+  position: absolute;
+  top: 50%;
+  width: 240px;
+  height: 320px;
+  background: var(--img);
+  background-position: center;
+  background-size: cover;
+  transform: translateY(-50%);
+  border-radius: 20px;
+  transition: 0.5s;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.slider .slides:nth-child(1),
+.slider .slides:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(0);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.0);
+  background-size: cover;
+}
+
+.slider .slides:nth-child(3) {
+  left: calc(50% + 240px);
+  background-size: cover;
+}
+
+.slider .slides:nth-child(4) {
+  left: calc(50% + 500px);
+  background-size: cover;
+}
+
+.slider .slides:nth-child(5) {
+  left: calc(50% + 760px);
+  background-size: cover;
+}
+
+.slider .slides:nth-child(6) {
+  left: calc(50% + 1020px);
+  background-size: cover;
+  opacity: 0;
+}
+
+.slider .slides:nth-child(7) {
+  left: calc(50% + 1280px);
+  background-size: cover;
+  opacity: 0;
+}
+
+.slider .slides:nth-child(8) {
+  left: calc(50% + 1540px);
+  background-size: cover;
+  opacity: 0;
+}
+
+.slider-buttons {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  gap: 20px;
+}
+
+.slider-buttons button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: #080708;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+}
+
+.slider-buttons button::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-top: 4px solid #fefefe;
+  border-left: 4px solid #fefefe;
+  transform: rotate(315deg) translate(2px, 2px);
+}
+
+.slider-buttons button:nth-child(2)::before {
+  transform: rotate(135deg) translate(2px, 2px);
+}
+
+.slider-buttons button:active {
+  opacity: 0.5;
+}
+
+.slide-content {
+  margin: 16px;
+  position: relative;
+  padding: 32px;
+  max-width: 600px;
+  transition: 0.25s;
+  transition-delay: 0;
+  transform: translateY(40px);
+  z-index: 99;
+  opacity: 0;
+
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 8px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.slide-content h2 {
+  font-size: 4em;
+  color: #fefefe;
+}
+
+.slide-content p {
+  color: #fefefe;
+}
+
+.slider .slides:nth-child(1) .slide-content,
+.slider .slides:nth-child(2) .slide-content {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.25s;
+
+}
+
+
+@media (max-width: 767px) {
+  .slider {
+    position: absolute;
+    inset: 40px 40px 200px 40px;
+  }
+
+  .slider .slides {
+    width: 100px;
+    height: 100px;
+    top: initial;
+    bottom: -178px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  }
+
+  .slider .slides:nth-child(1),
+  .slider .slides:nth-child(2) {
+    top: initial;
+    bottom: 0;
+  }
+
+  .slider .slides:nth-child(3) {
+    left: 0;
+  }
+
+  .slider .slides:nth-child(4) {
+    left: 120px;
+  }
+
+  .slider .slides:nth-child(5) {
+    left: 240px;
+  }
+
+  .slider .slides:nth-child(6) {
+    left: 360px;
+    opacity: 1;
+  }
+
+  .slider .slides:nth-child(7) {
+    left: 480px;
+    opacity: 1;
+  }
+
+  .slider .slides:nth-child(8) {
+    left: 600px;
+  }
+
+  .slide-content {
+    padding: 16px;
+  }
+
+  .slide-content h2 {
+    font-size: 2em;
+  }
+
+  .slide-content p {
+    font-size: 10px;
+  }
+}
