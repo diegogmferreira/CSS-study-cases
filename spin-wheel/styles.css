@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #3E1929;
+}
+
+.wheel-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-container::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  top: 45px;
+  background: #F97068;
+  z-index: 100;
+  clip-path: polygon(50% 0%, 65% 50%, 50% 100%, 35% 50%);
+}
+
+.wheel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #B0DAF1;
+  box-shadow: 0 0 10px #B0DAF1;
+  border-radius: 50%;
+  transition: transform 5s ease-in-out;
+  overflow: hidden;
+}
+
+.wheel span {
+  position: absolute;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 100%;
+  background: #B0DAF1;
+  transform: rotate(calc(45deg * var(--i)));
+  filter: drop-shadow(0 0 5px #B0DAF1);
+}
+
+.wheel-spin-btn {
+  position: absolute;
+  inset: 140px;
+  background: #B0DAF1;
+  color: #6E75A8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px #B0DAF1);
+  user-select: none;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+}
+
+.wheel-number {
+  position: absolute;
+  inset: 0;
+  rotate: 22.5deg;
+}
+
+.wheel-number b {
+  position: absolute;
+  inset: 10px;
+  transform: rotate(calc(45deg * var(--i)));
+  text-align: center;
+  font-size: 2rem;
+  color: #B0DAF1;
+  font-weight: 500;
+  filter: drop-shadow(0 0 5px #B0DAF1);
+}
+
+.inner-wheel {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: #3E1929;
+  border: 3px solid #B0DAF1;
+  transition: transform 10s ease-in-out;
+
+}
