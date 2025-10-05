@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Poopins:200,300,400,500,600,700,800,900&display=swap');
+
+:root {
+	--timing: 400ms;
+	--rotation: 20deg;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	perspective: 1000px;
+	background: #161623;
+	gap: 5rem;
+}
+
+img {
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.animated-border-card,
+.animated-border-card-2 {
+	position: relative;
+	margin: 0 auto;
+	padding: 1rem;
+	width: 22rem;
+	background-color: #1c1f2b;
+	text-align: center;
+	border-radius: 0.75rem;
+	color: #d1d1d1;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.animated-border-card p,
+.animated-border-card-2 p {
+	text-align: start;
+	color: #676767;
+}
+
+.animated-border-card::before,
+.animated-border-card::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.75rem;
+	padding: 0.25rem;
+	background-image: conic-gradient(from var(--angle), red, blue, red);
+	animation: 3s spin linear infinite;
+	z-index: -1;
+}
+
+.animated-border-card::before,
+.animated-border-card-2::before {
+	filter: blur(1.5rem);
+	opacity: 0.5;
+}
+
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.animated-border-card-2::before,
+.animated-border-card-2::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.75rem;
+	padding: 0.25rem;
+	background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+	z-index: -1;
+	animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+	from {
+		--angle: 0deg;
+	}
+	to {
+		--angle: 360deg;
+	}
+}
